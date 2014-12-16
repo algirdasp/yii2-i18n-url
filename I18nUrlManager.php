@@ -91,6 +91,12 @@ class I18nUrlManager extends UrlManager
                 $params[0] = Yii::$app->language . '/' . ltrim($params[0], '/');
             }
         }
+        
+        foreach (\Yii::$app->request->get() as $item_key => $item) {
+            if (substr($item_key, 0, 3) == '_g_')
+                $params[$item_key] = $item;
+        }        
+        
         return parent::createUrl($params);
     }
 
