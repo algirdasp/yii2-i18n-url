@@ -93,7 +93,7 @@ class I18nUrlManager extends UrlManager
         }
         
         foreach (\Yii::$app->request->get() as $item_key => $item) {
-            if (substr($item_key, 0, 3) == '_g_')
+            if (substr($item_key, 0, 3) == '_p_')
                 $params[$item_key] = $item;
         }        
         
